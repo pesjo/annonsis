@@ -19,7 +19,6 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-
 console.log("hej");
 
 app.listen(port, () => {
