@@ -19,7 +19,8 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-console.log("hej");
+
+console.log("hejsan pernilla");
 
 app.listen(port, () => {
     console.log(`app listening at port http://localhost:${port}`);
