@@ -19,10 +19,29 @@ var connection = mysql.createConnection({
 
 connection.connect();
 
-
 console.log("hejsan pernilla");
 
 app.listen(port, () => {
     console.log(`app listening at port http://localhost:${port}`);
     console.log({ port });
   });
+
+app.get("/api/annonspost", (req, res) => {
+     const varupris = 2;
+     const innehall = "1";
+     const rubrik = "1";
+     const annonspris = 1;
+
+     const sqlSelect = `INSERT INTO tbl_ads SET ad_varupris = ?, ad_innehall = ?, ad_rubrik = ?, ad_annonspris = ?;`;
+
+     connection.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
+       if(err){
+         console.log(err)
+       }
+       else{
+         console.log(result);
+       }
+   });
+ });
+
+ 
