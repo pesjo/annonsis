@@ -50,6 +50,25 @@ function App() {
   };
 
 
+  const update_prenumerant = async (e) => {
+
+    console.log("TEST: update_prenumerant kallas");
+    // e.preventDefault()
+    // try {
+      
+    //   //const prenumerant = { prenumerantnummer: 1 };
+    //   const response = await fetch(`/api/post/${prenumerantnummer}`);
+    //   const data = await response.json();
+    //   console.log("Nu ska informationen uppdateras");
+    //   console.log(data);
+    //   set_prenumerant_info(data);
+    // } catch (error) {
+    //   console.log("fångade ett error! här är det");
+    //   console.log(error);
+    // }
+  }
+
+
 
 
 
@@ -114,13 +133,100 @@ function App() {
           {/* onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
         <button id="search">Sök</button>
       </form> */}
+    
+
+    <h2>Formlär där prenumerantens info auto-updateras</h2>
+
+
+    <form className="UpdatePrenumerant" onSubmit={update_prenumerant}> 
+    <div className = "field">
+      <label>Personnummer</label>
+      <input
+            type="text"
+            InputL= "namn"
+            name="prenumerationsnr"
+            defaultValue = {prenumerant_info.pre_persnr}
+            required
+            // onChange={(e) => {
+            //   set_prenumerationsnr(e.target.value);
+            // }}
+          />
+             
+
+      </div>
+      <br/>
+      <div className = "field">
+    <label>Förnamn</label>
+    <input
+          type="text"
+          InputL= "namn"
+          name="prenumerationsnr"
+          defaultValue = {prenumerant_info.pre_fornamn}
+          required
+          // onChange={(e) => {
+          //   set_prenumerationsnr(e.target.value);
+          // }}
+        />
+
+    </div>
+     <br/>
+
+<div className = "field">
+
+<label>Efternamn</label>
+    <input
+          type="text"
+          InputL= "namn"
+          name="prenumerationsnr"
+          defaultValue = {prenumerant_info.pre_efternamn}
+          required
+          // onChange={(e) => {
+          //   set_prenumerationsnr(e.target.value);
+          // }}
+        />
+  
+</div>
+<br/>
+<div className = "field">
+
+<label>Adress</label>
+    <input
+          type="text"
+          InputL= "namn"
+          name="prenumerationsnr"
+          defaultValue = {prenumerant_info.pre_adress}
+          required
+          // onChange={(e) => {
+          //   set_prenumerationsnr(e.target.value);
+          // }}
+        />
+</div>
+
+<br/>
+<div className = "field">
+
+<label>Personnummer</label>
+    <input
+          type="text"
+          InputL= "namn"
+          name="prenumerationsnr"
+          defaultValue = {prenumerant_info.pre_postnr}
+          required
+          // onChange={(e) => {
+          //   set_prenumerationsnr(e.target.value);
+          // }}
+        />
+</div>
+</form>
+
+      
 
 
       <p>
         <strong>Prenumerations nummer:</strong> {prenumerant_info.pre_fornamn}
       </p>
-
-      <FormPrenumnerant></FormPrenumnerant>
+{/* 
+      <FormPrenumnerant></FormPrenumnerant> */}
 
       {/* {[prenumerant_info].map((val) => {
       return (
