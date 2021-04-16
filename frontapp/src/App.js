@@ -53,6 +53,71 @@ function App() {
       <h1>Pernie Siggster appster</h1>
 
       <form className="new" onSubmit = {search_prenumeration}>
+import logo from './logo.svg';
+import React, { useState, useEffect} from "react";
+import './App.css';
+
+function App() {
+
+  const [prenumerationsnr, set_prenumerationsnr] = useState('');
+  const [prenumerant_info, set_prenumerant_info] = useState('');
+  const [show_pre, set_show_pre] = useState(false);
+  const [show_annons, set_show_annons] = useState(false);
+
+
+  const search_prenumeration = () => {
+    const data = { prenumerantnummer: prenumerationsnr }
+    const response = fetch(`http://localhost:5001/api/get`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    set_prenumerant_info(response);
+  };
+
+  // const Select_prenumerant = () => {
+  //   if (annonsor == "Prenumerant") {
+  //     console.log("GJORT VAL:", annonsor)
+  //   }
+  //   else if (annonsor == "Företag") {
+  //     console.log("GJORT VAL:", annonsor)
+
+  //   }
+
+
+  // };
+
+
+  return (
+    <div className="App">
+      <h1>Perrster & Siggster appster</h1>
+
+      <h4>Jag är:</h4>
+      <form>
+        {/* <input type="radio" name="drivers" value="Prenumerant" onChange={(e) => set_annonsor(e.target.value)} />Prenumerant
+          <input type="radio" name="drivers" value="Företag" onChange={(e) => set_annonsor(e.target.value)} />Företagare */}
+          <input type="radio" name="drivers" value="Prenumerant" onClick={() => set_show_pre(true)} />Prenumerant
+          <input type="radio" name="drivers" value="Företag" onClick={() => set_show_annons(true)} />Företag
+          {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
+      </form>
+
+      {
+        show_pre?<form>
+          <input
+          type="text"
+          placeholder="Prenumerationsnummer"
+          />
+        </form>:null
+      }
+      {
+        show_annons?<form>
+          <input
+          type="text"
+          placeholder="FÖRETAG"/>
+        </form>:null
+      }
+
+      {/* <form className="Prenumerant" onSubmit={search_prenumeration}>
         <h2>Hämta prenumerant</h2>
         <label>Prenumerations ID</label>
         <input
@@ -68,6 +133,11 @@ function App() {
         </button>
       </form>
       {prenumerantnummer}
+          onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
+        <button id="search">Sök</button>
+      </form>
+
+      <p><strong>Prenumerations information:</strong> {prenumerant_info}</p> */}
 
       <p>
         <strong>Prenumerations nummer:</strong> {prenumerant_info.pre_fornamn}
@@ -91,6 +161,7 @@ function App() {
     })}  */}
     </div>
   );
+  )
 }
 
 export default App;
