@@ -18,11 +18,11 @@ function App() {
     pre_adress: null,
     pre_postnr: null
   }]);
+
   const [show_pre, set_show_pre] = useState(false);
   const [show_annons, set_show_annons] = useState(false);
 
   const search_prenumeration = async (e) => {
-
     e.preventDefault()
     try {
       
@@ -106,17 +106,15 @@ function App() {
             set_prenumerationsnr(e.target.value);
           }}
         />
-        <input type = "submit" > Sök prenumerant</input> 
+        <input type = "submit" value = "Sök prenumerant/" ></input>
       </form>
 
 
 
-      {prenumerantnummer}
           {/* onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
         <button id="search">Sök</button>
       </form> */}
 
-      <p><strong>Prenumerations information:</strong> {prenumerant_info}</p> */}
 
       <p>
         <strong>Prenumerations nummer:</strong> {prenumerant_info.pre_fornamn}
