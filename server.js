@@ -35,11 +35,15 @@ app.get("/api/annonspost", (req, res) => {
      const sqlSelect = `INSERT INTO tbl_ads SET ad_varupris = ?, ad_innehall = ?, ad_rubrik = ?, ad_annonspris = ?;`;
 
      connection.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
-       if(err){
-         console.log(err)
+       if(result){
+            console.log(result);
+            res.status(200).send("");
+
+
        }
        else{
-         console.log(result);
+         console.log(err)
+
        }
    });
  });
