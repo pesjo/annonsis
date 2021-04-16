@@ -18,6 +18,8 @@ function App() {
     pre_adress: null,
     pre_postnr: null
   }]);
+  const [show_pre, set_show_pre] = useState(false);
+  const [show_annons, set_show_annons] = useState(false);
 
   const search_prenumeration = async (e) => {
 
@@ -44,36 +46,12 @@ function App() {
 
     // .then(res => res.json())
     // .then(data => console.log(data));
-
     
   };
 
-  return (
-    <div className="App">
-      <h1>Pernie Siggster appster</h1>
-
-      <form className="new" onSubmit = {search_prenumeration}>
-import logo from './logo.svg';
-import React, { useState, useEffect} from "react";
-import './App.css';
-
-function App() {
-
-  const [prenumerationsnr, set_prenumerationsnr] = useState('');
-  const [prenumerant_info, set_prenumerant_info] = useState('');
-  const [show_pre, set_show_pre] = useState(false);
-  const [show_annons, set_show_annons] = useState(false);
 
 
-  const search_prenumeration = () => {
-    const data = { prenumerantnummer: prenumerationsnr }
-    const response = fetch(`http://localhost:5001/api/get`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    set_prenumerant_info(response);
-  };
+
 
   // const Select_prenumerant = () => {
   //   if (annonsor == "Prenumerant") {
@@ -90,7 +68,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Perrster & Siggster appster</h1>
+      <h1>Perrster och Siggster appster</h1>
 
       <h4>Jag är:</h4>
       <form>
@@ -117,7 +95,7 @@ function App() {
         </form>:null
       }
 
-      {/* <form className="Prenumerant" onSubmit={search_prenumeration}>
+       <form className="Prenumerant" onSubmit={search_prenumeration}>
         <h2>Hämta prenumerant</h2>
         <label>Prenumerations ID</label>
         <input
@@ -128,14 +106,15 @@ function App() {
             set_prenumerationsnr(e.target.value);
           }}
         />
-        <button id="search" onClick={search_prenumeration}>
-          Sök
-        </button>
+        <input type = "submit" > Sök prenumerant</input> 
       </form>
+
+
+
       {prenumerantnummer}
-          onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
+          {/* onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
         <button id="search">Sök</button>
-      </form>
+      </form> */}
 
       <p><strong>Prenumerations information:</strong> {prenumerant_info}</p> */}
 
@@ -160,8 +139,7 @@ function App() {
       )
     })}  */}
     </div>
-  );
-  )
-}
 
+  )
+};
 export default App;
