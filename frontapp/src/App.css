@@ -11,6 +11,10 @@ form{
   padding: 1rem;
 }
 
+input{
+  margin: 0.5rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

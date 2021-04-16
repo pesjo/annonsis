@@ -1,88 +1,12 @@
-import logo from "./logo.svg";
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import axios from "axios";
 import FormPrenumnerant from "./FormPrenumerant";
-
-// const api = axios.create({
-//   baseURL: `http://localhost:5001/api/get`,
-// });
-
+import SecondaryHeading from "./components/SecondaryHeading/index";
+import PrenumerantForm from "./components/PrenumerantForm";
 function App() {
-  const [prenumerantnummer, set_prenumerationsnr] = useState("");
-  const [prenumerant_info, set_prenumerant_info] = useState([{
-    pre_id: null,
-    pre_persnr: null,
-    pre_fornamn: null,
-    pre_efternamn: null,
-    pre_adress: null,
-    pre_postnr: null
-  }]);
-
-  const [show_pre, set_show_pre] = useState(false);
+  const [show_pre, set_show_pre] = useState(true);
   const [show_annons, set_show_annons] = useState(false);
-
-  const search_prenumeration = async (e) => {
-    e.preventDefault()
-    try {
-      
-      //const prenumerant = { prenumerantnummer: 1 };
-      const response = await fetch(`/api/get/${prenumerantnummer}`);
-      const data = await response.json();
-      console.log("ser bra ut, här är hämtade prenumeranten...");
-      console.log(data);
-      set_prenumerant_info(data);
-    } catch (error) {
-      console.log("fångade ett error! här är det");
-      console.log(error);
-    }
-
-    // console.log(prenumerant);
-    // const response = await api.get("");
-    // console.log("=================");
-    // console.log("=================");
-    // const data = await response.json();
-    // console.log(data);
-
-    // .then(res => res.json())
-    // .then(data => console.log(data));
-    
-  };
-
-
-  const update_prenumerant = async (e) => {
-
-    console.log("TEST: update_prenumerant kallas");
-    // e.preventDefault()
-    // try {
-      
-    //   //const prenumerant = { prenumerantnummer: 1 };
-    //   const response = await fetch(`/api/post/${prenumerantnummer}`);
-    //   const data = await response.json();
-    //   console.log("Nu ska informationen uppdateras");
-    //   console.log(data);
-    //   set_prenumerant_info(data);
-    // } catch (error) {
-    //   console.log("fångade ett error! här är det");
-    //   console.log(error);
-    // }
-  }
-
-
-
-
-
-  // const Select_prenumerant = () => {
-  //   if (annonsor == "Prenumerant") {
-  //     console.log("GJORT VAL:", annonsor)
-  //   }
-  //   else if (annonsor == "Företag") {
-  //     console.log("GJORT VAL:", annonsor)
-
-  //   }
-
-
-  // };
+  const [error, set_error] = useState("");
 
 
   return (
@@ -91,141 +15,37 @@ function App() {
 
       <h4>Jag är:</h4>
       <form>
-        {/* <input type="radio" name="drivers" value="Prenumerant" onChange={(e) => set_annonsor(e.target.value)} />Prenumerant
-          <input type="radio" name="drivers" value="Företag" onChange={(e) => set_annonsor(e.target.value)} />Företagare */}
-          <input type="radio" name="drivers" value="Prenumerant" onClick={() => set_show_pre(true)} />Prenumerant
-          <input type="radio" name="drivers" value="Företag" onClick={() => set_show_annons(true)} />Företag
-          {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
-      </form>
-
-      {
-        show_pre?<form>
-          <input
-          type="text"
-          placeholder="Prenumerationsnummer"
-          />
-        </form>:null
-      }
-      {
-        show_annons?<form>
-          <input
-          type="text"
-          placeholder="FÖRETAG"/>
-        </form>:null
-      }
-
-       <form className="Prenumerant" onSubmit={search_prenumeration}>
-        <h2>Hämta prenumerant</h2>
-        <label>Prenumerations ID</label>
         <input
-          type="text"
-          name="prenumerationsnr"
-          required
-          onChange={(e) => {
-            set_prenumerationsnr(e.target.value);
-          }}
+          type="radio"
+          name="drivers"
+          value="Prenumerant"
+          onClick={() => set_show_pre(true)}
         />
-        <input type = "submit" value = "Sök prenumerant/" ></input>
+        Prenumerant
+        <input
+          type="radio"
+          name="drivers"
+          value="Företag"
+          onClick={() => set_show_pre(false)}
+        />
+        Företag
+        {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
       </form>
 
+      {show_pre ? (
+        <PrenumerantForm></PrenumerantForm>
+      ) : <></>}
+      {!show_pre ? (
+        <form>
+          <input type="text" placeholder="FÖRETAG" />
+        </form>
+      ) : null}
 
-
-          {/* onChange={(e) => { set_prenumerationsnr(e.target.value); }} />
-        <button id="search">Sök</button>
-      </form> */}
-    
-
-    <h2>Formlär där prenumerantens info auto-updateras</h2>
-
-
-    <form className="UpdatePrenumerant" onSubmit={update_prenumerant}> 
-    <div className = "field">
-      <label>Personnummer</label>
-      <input
-            type="text"
-            InputL= "namn"
-            name="prenumerationsnr"
-            defaultValue = {prenumerant_info.pre_persnr}
-            required
-            // onChange={(e) => {
-            //   set_prenumerationsnr(e.target.value);
-            // }}
-          />
-             
-
-      </div>
-      <br/>
-      <div className = "field">
-    <label>Förnamn</label>
-    <input
-          type="text"
-          InputL= "namn"
-          name="prenumerationsnr"
-          defaultValue = {prenumerant_info.pre_fornamn}
-          required
-          // onChange={(e) => {
-          //   set_prenumerationsnr(e.target.value);
-          // }}
-        />
-
-    </div>
-     <br/>
-
-<div className = "field">
-
-<label>Efternamn</label>
-    <input
-          type="text"
-          InputL= "namn"
-          name="prenumerationsnr"
-          defaultValue = {prenumerant_info.pre_efternamn}
-          required
-          // onChange={(e) => {
-          //   set_prenumerationsnr(e.target.value);
-          // }}
-        />
-  
-</div>
-<br/>
-<div className = "field">
-
-<label>Adress</label>
-    <input
-          type="text"
-          InputL= "namn"
-          name="prenumerationsnr"
-          defaultValue = {prenumerant_info.pre_adress}
-          required
-          // onChange={(e) => {
-          //   set_prenumerationsnr(e.target.value);
-          // }}
-        />
-</div>
-
-<br/>
-<div className = "field">
-
-<label>Personnummer</label>
-    <input
-          type="text"
-          InputL= "namn"
-          name="prenumerationsnr"
-          defaultValue = {prenumerant_info.pre_postnr}
-          required
-          // onChange={(e) => {
-          //   set_prenumerationsnr(e.target.value);
-          // }}
-        />
-</div>
-</form>
+      <SecondaryHeading text="Formlär där prenumerantens info auto-updateras"></SecondaryHeading>
 
       
 
-
-      <p>
-        <strong>Prenumerations nummer:</strong> {prenumerant_info.pre_fornamn}
-      </p>
-{/* 
+      {/* 
       <FormPrenumnerant></FormPrenumnerant> */}
 
       {/* {[prenumerant_info].map((val) => {
@@ -243,7 +63,6 @@ function App() {
       )
     })}  */}
     </div>
-
-  )
-};
+  );
+}
 export default App;
