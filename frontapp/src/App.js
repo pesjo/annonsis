@@ -31,6 +31,8 @@ function App() {
         Företag
         {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
       </form>
+      <SecondaryHeading text="Formlär där prenumerantens info auto-updateras ish snart efter att infon hämtats och så"></SecondaryHeading>
+      <SecondaryHeading text="SOLEN SKINER"></SecondaryHeading>
 
       {show_pre ? (
         <PrenumerantForm></PrenumerantForm>
@@ -40,28 +42,6 @@ function App() {
           <input type="text" placeholder="FÖRETAG" />
         </form>
       ) : null}
-
-      <SecondaryHeading text="Formlär där prenumerantens info auto-updateras"></SecondaryHeading>
-
-      
-
-      {/* 
-      <FormPrenumnerant></FormPrenumnerant> */}
-
-      {/* {[prenumerant_info].map((val) => {
-      return (
-        <div className="card">
-
-        <p><strong>Prenumerations nummer:</strong> {val.pre_id}</p>
-        <p><strong>Persnr:</strong> {val.pre_persnr}</p>
-        <p><strong>Förnamn:</strong> {val.pre_fornamn}</p>
-        <p><strong>Efternamn:</strong> {val.pre_efternamn}</p>
-        <p><strong>Address:</strong> {val.pre_adress}</p>
-        <p><strong>Annonsör:</strong> {val.pre_annonsor}</p>
-
-        </div>
-      )
-    })}  */}
     </div>
   );
 }
