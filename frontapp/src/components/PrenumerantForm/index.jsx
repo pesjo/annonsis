@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import useStyles from "./styles";
+
 import {
   getPrenumerant,
   getPrenumerantById,
   putPrenumerantInfo,
 } from "../../api/prenumerantApi";
+import TextInput from "../TextInput";
 
 const PrenumerantForm = () => {
   const [prenumerant_id, set_prenumerant_id] = useState("");
@@ -12,6 +15,7 @@ const PrenumerantForm = () => {
   const [prenumerant_efternamn, set_prenumerant_efternamn] = useState("");
   const [prenumerant_adress, set_prenumerant_adress] = useState("");
   const [prenumerant_postnr, set_prenumerant_postnr] = useState("");
+  const classes = useStyles();
 
   const search_prenumeration = async (e) => {
     e.preventDefault();
@@ -47,6 +51,7 @@ const PrenumerantForm = () => {
         <h2>Hämta prenumerant</h2>
         <label>Prenumerations ID</label>
         <input
+          className={classes.formStyle}
           type="text"
           name="prenumerationsnr"
           required
@@ -54,87 +59,24 @@ const PrenumerantForm = () => {
             set_prenumerant_id(e.target.value);
           }}
         />
-        <input type="submit" value="Sök prenumerant/"></input>
+        <input type="submit" value="Sök prenumerant/" className={classes.buttonStyle}></input>
       </form>
-
-    
 
       <form className="UpdatePrenumerant" onSubmit={update_prenumerant}>
-        <div className="field">
-          <label>Personnummer</label>
-          <input
-            type="text"
-            name="prenumerationsnr"
-            defaultValue={prenumerant_persnr}
-            value={prenumerant_persnr}
-            required
-            onChange={(e) => {
-              set_prenumerant_persnr(e.target.value);
-            }}
-          />
-        </div>
-        <br />
-        <div className="field">
-          <label>Förnamn</label>
-          <input
-            type="text"
-            name="prenumerationsnr"
-            defaultValue={prenumerant_fornamn}
-            value={prenumerant_fornamn}
-            required
-            onChange={(e) => {
-              set_prenumerant_fornamn(e.target.value);
-            }}
-          />
-        </div>
-        <br />
 
-        <div className="field">
-          <label>Efternamn</label>
-          <input
-            type="text"
-            name="prenumerationsnr"
-            defaultValue={prenumerant_efternamn}
-            value={prenumerant_efternamn}
-            required
-            onChange={(e) => {
-              set_prenumerant_efternamn(e.target.value);
-            }}
-          />
-        </div>
-        <br />
-        <div className="field">
-          <label>Adress</label>
-          <input
-            type="text"
-            name="prenumerationsnr"
-            defaultValue={prenumerant_adress}
-            value={prenumerant_adress}
-            required
-            onChange={(e) => {
-              set_prenumerant_adress(e.target.value);
-            }}
-          />
-        </div>
-
-        <br />
-        <div className="field">
-          <label>Postnummer</label>
-          <input
-            type="text"
-            name="prenumerationsnr"
-            defaultValue={prenumerant_postnr}
-            value={prenumerant_postnr}
-            required
-            onChange={(e) => {
-              set_prenumerant_postnr(e.target.value);
-            }}
-          />
-        </div>
-        <input type="submit" value="Spara information"></input>
+        <TextInput label="Personnummer" value={prenumerant_persnr} setValue ={set_prenumerant_persnr} ></TextInput>
+        <br/>
+        <TextInput label="Förnamn" value={prenumerant_fornamn} setValue ={set_prenumerant_fornamn} ></TextInput>
+        <br/>
+        <TextInput label="Efternamn" value={prenumerant_efternamn} setValue ={set_prenumerant_efternamn} ></TextInput>
+        <br/>
+        <TextInput label="Adress" value={prenumerant_adress} setValue ={set_prenumerant_adress} ></TextInput>
+        <br/>
+        <TextInput label="Postnummer" value={prenumerant_postnr} setValue ={set_prenumerant_postnr} ></TextInput>
+        <br/>
+        
+        <input type="submit" value="Spara information" className={classes.buttonStyle}></input>
       </form>
-
-    
     </>
   );
 };

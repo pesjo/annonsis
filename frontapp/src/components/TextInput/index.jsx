@@ -1,25 +1,17 @@
 
 import useStyles from './styles'
+import TextField from '@material-ui/core/TextField';
 
-const TextInput = ({label, prenumerant_persnr}) => {
+
+const TextInput = ({label, value, setValue}) => {
 const classes = useStyles();
-const [prenumerant_persnr, set_prenumerant_persnr] = useState("");
-
 
 return (
-    <div className = {classes.inputFieldStyles}>
-      <label>{label}</label>
-      <input
-        type="text"
-        name={label}
-        defaultValue={prenumerant_persnr}
-        value={prenumerant_persnr}
-        required
-        onChange={(e) => {
-          set_prenumerant_persnr(e.target.value);
-        }}
-      />
-    </div>)
+      <TextField id={label} label={label} defaultValue={value} value={value} required onChange={(e) => {
+          setValue(e.target.value);
+        }}/>
+
+)
 
 }
 
