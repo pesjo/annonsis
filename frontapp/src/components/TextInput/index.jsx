@@ -7,7 +7,7 @@ const TextInput = ({label, value, setValue}) => {
 const classes = useStyles();
 
 return (
-      <TextField id={label} label={label} defaultValue={value} value={value} required onChange={(e) => {
+      <TextField className= {classes.formStyle} id={label} label={label} defaultValue={value} value={value} required onChange={(e) => {
           setValue(e.target.value);
         }}/>
 

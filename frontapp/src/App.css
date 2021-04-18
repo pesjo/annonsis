@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #fcf2fa;
 }
 
 .App-logo {
@@ -14,6 +15,7 @@ form{
 input{
   margin: 0.5rem;
 }
+
 
 
 @media (prefers-reduced-motion: no-preference) {

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import FormPrenumnerant from "./FormPrenumerant";
 import SecondaryHeading from "./components/SecondaryHeading/index";
 import PrenumerantForm from "./components/PrenumerantForm";
+import ForetagForm from "./components/ForetagForm";
 function App() {
   const [show_pre, set_show_pre] = useState(true);
   const [show_annons, set_show_annons] = useState(false);
@@ -19,6 +19,7 @@ function App() {
           type="radio"
           name="drivers"
           value="Prenumerant"
+          defaultChecked = "true"
           onClick={() => set_show_pre(true)}
         />
         Prenumerant
@@ -38,9 +39,7 @@ function App() {
         <PrenumerantForm></PrenumerantForm>
       ) : <></>}
       {!show_pre ? (
-        <form>
-          <input type="text" placeholder="FÖRETAG" />
-        </form>
+        <ForetagForm></ForetagForm>
       ) : null}
     </div>
   );
