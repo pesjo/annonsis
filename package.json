@@ -19,6 +19,7 @@
     "mysql2": "^2.2.5"
   },
   "devDependencies": {
+    "http-proxy-middleware": "^1.2.0",
     "nodemon": "^2.0.7"
   }
 }

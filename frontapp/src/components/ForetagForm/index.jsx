@@ -2,7 +2,7 @@ import React, { useState } from "react";
 //import useStyles from "./styles";
 import RadioButtons from "../RadioButtonsForetag"
 import TextInput from "../TextInput";
-import HarAnnonseratForm from "../harAnnonseratForm"
+import HarAnnonseratForm from "../HarAnnonseratForm"
 
 
 const ForetagForm = () => {
@@ -31,11 +31,12 @@ const ForetagForm = () => {
         <br/>
        
 
-        <HarAnnonseratForm></HarAnnonseratForm>
-        
        
       </form>
 
+
+      <HarAnnonseratForm></HarAnnonseratForm>
+        
       <form className="UpdatePrenumerant" onSubmit={updateForetag}>
       {/* <TextInput label="Personnummer" value={prenumerant_persnr} setValue ={set_prenumerant_persnr} ></TextInput>
         <br/> */}

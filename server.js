@@ -10,23 +10,71 @@ app.use(express.json());
 
 const port = 5000;
 
-var connection = mysql.createConnection({
+var db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
   database: "annonssystem",
 });
-
-connection.connect();
-
-console.log("hejsan pernilla");
+db.connect();
 
 app.listen(port, () => {
-    console.log(`app listening at port http://localhost:${port}`);
-    console.log({ port });
-  });
+      console.log(`app listening at port http://localhost:${port}`);
+      console.log({ port });
+});
 
+console.log("hit kmr den 1")
+
+
+app.get("/annonsApi/annonsorget", (req, res) => {
+  console.log(req.params.id)
+  const organisationsnummer = 234;
+  console.log("organisationsnummer: ", organisationsnummer)
+
+   const sqlSelect = `Select * FROM tbl_annonsorer WHERE annonsor_orgnr = ?`;
+   console.log("ökhvl")
+   db.query(sqlSelect, [organisationsnummer], (err, result) => {
+      if(result){
+           console.log(result);
+           res.json(result[0]);
+           console.log(result[0])
+      }
+      else{
+        console.log(err)
+       }
+
+   return result;
+});
+});
+console.log("hit kmr den 2")
+
+
+app.get("annonsApi/annonsget:id", (req, res) => {
+  console.log(req.params)
+  const prenumerantnummer = req.params.id;
+
+   const sqlSelect = `Select * FROM tbl_prenumeranter WHERE pre_id = ?`;
+   connection.query(sqlSelect, [prenumerantnummer], (err, result) => {
+      if(result){
+           console.log(result);
+           res.json(result[0]);
+           console.log(result[0])
+      }
+      else{
+        console.log(err)
+       }
+
+   return result;
+});
+});
+console.log("hit kmr den 3")
+
+
+<<<<<<< Updated upstream
 app.post("/api/annonspost", (req, res) => {
+=======
+app.get("/annonsApi/annonspost", (req, res) => {
+>>>>>>> Stashed changes
      const varupris = 2;
      const innehall = "1jjjjj";
      const rubrik = "1";
@@ -46,6 +94,22 @@ app.post("/api/annonspost", (req, res) => {
 
        }
    });
+
+   app.get("/a", (req, res) => {
+    console.log("result");
+
+
+           res.status(200).send("bajs");
+
+
+     
+  });
+
+app.listen(port, () => {
+        console.log(`app listening at port http://localhost:${port}`);
+        console.log({ port });
+      });
+    
  });
 
  

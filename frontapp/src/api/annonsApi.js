@@ -2,7 +2,8 @@ export const getAnnonsorById = async (id) => {
     console.log("id" , id);
     
     try{
-        const response = await fetch(`/api/get/${id}`);
+        
+        const response = await fetch(`http://localhost:5000/annonsApi/annonsorget/`);
         console.log("response", response);
         const data = await response.json();
         return data;
