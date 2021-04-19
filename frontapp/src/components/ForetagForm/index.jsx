@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import RadioButtonsForetag from "../RadioButtonsForetag"
 import TextInput from "../TextInput";
 import HarAnnonseratForm from "../HarAnnonseratForm"
+import FormNyttForetag from "../FormNyttForetag"
 
 
 const ForetagForm = () => {
@@ -53,6 +54,7 @@ const ForetagForm = () => {
 
 
         <HarAnnonseratForm></HarAnnonseratForm>
+        <FormNyttForetag></FormNyttForetag>
           </>
       ) : <></>}
       {!tidareAnnonsor ? (

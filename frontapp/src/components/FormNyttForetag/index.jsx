@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TextInput from "../TextInput";
-
+import useStyles from "./styles";
+import SecondaryHeading from "../SecondaryHeading";
 import {
   getAnnonsorById,
   putAnnonsorInfo
@@ -18,25 +19,10 @@ const HarAnnonseratForm = () => {
   const [annonsor_f_postnr, setAnnonsorFPosstnr] = useState("");
   const [annonsor_f_ort, setAnnonsorFOrt] = useState("");
 
-  //const classes = useStyles();
+  const classes = useStyles();
 
-  const searchForetag = async (e) => {
-    e.preventDefault();
-    console.log("går in i funktionen searchForetag fron har annonserat");
-    const data = await getAnnonsorById(annonsor_orgnr);
 
-    setAnnonsorNamn(data.annonsor_namn);
-    setAnnonsorTelnr(data.annonsor_telnr);
-    setAnnonsorUAdress(data.annonsor_u_adress);
-    setAnnonsorUPosstnr(data.annonsor_u_postnr);
-    setAnnonsorUOrt(data.annonsor_u_ort);
-
-    setAnnonsorFAdress(data.annonsor_f_adress);
-    setAnnonsorFPosstnr(data.annonsor_f_postnr);
-    setAnnonsorFOrt(data.annonsor_f_ort);
-  };
-
-  const updateForetag = async (e) => {
+  const insertForetag = async (e) => {
     e.preventDefault();
 
     console.log("TEST: update_Foretag kallas");
@@ -61,23 +47,20 @@ const HarAnnonseratForm = () => {
 
   return (
     <>
-      Skriv in ditt Organisationsnummer för att hämta info
-      <form onSubmit={searchForetag}>
-        <TextInput
-          label="Organisationsnummer"
-          value={annonsor_orgnr}
-          setValue={setAnnonsorOrgNr}
-        ></TextInput>
-        <br />
-        <input type="submit" value="Sök företag"></input>
-      </form>
-      <form onSubmit={updateForetag}>
+      <SecondaryHeading text="Nytt företag"></SecondaryHeading>
+      <form onSubmit={insertForetag}>
         <TextInput
           label="Företagets namn"
           value={annonsor_namn}
           setValue={setAnnonsorNamn}
         ></TextInput>
         <br />
+        <TextInput
+          label="Organisationsnummer"
+          value={annonsor_orgnr}
+          setValue={setAnnonsorOrgNr}
+        ></TextInput>
+        <br/>
         <TextInput
           label="Telefonnummer"
           value={annonsor_telnr}
@@ -128,7 +111,7 @@ const HarAnnonseratForm = () => {
           setValue={setAnnonsorFOrt}
         ></TextInput>
         <br />
-        <input type="submit" value="Spara information" ></input>
+        <input type="submit" value="Spara information"className={classes.buttonStyle} ></input>
       </form>
     </>
   );
