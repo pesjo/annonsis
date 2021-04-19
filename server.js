@@ -28,8 +28,11 @@ console.log("hit kmr den 1")
 
 app.get("/annonsApi/annonsorget", (req, res) => {
   console.log(req.params.id)
+  const organisationsnummer = 
+  console.log("organisationsnummer: ", organisationsnummer)
   const organisationsnummer = 234;
   console.log("organisationsnummer: ", organisationsnummer)
+
 
    const sqlSelect = `Select * FROM tbl_annonsorer WHERE annonsor_orgnr = ?`;
    console.log("ökhvl")
@@ -70,11 +73,7 @@ app.get("annonsApi/annonsget:id", (req, res) => {
 console.log("hit kmr den 3")
 
 
-<<<<<<< Updated upstream
-app.post("/api/annonspost", (req, res) => {
-=======
 app.get("/annonsApi/annonspost", (req, res) => {
->>>>>>> Stashed changes
      const varupris = 2;
      const innehall = "1jjjjj";
      const rubrik = "1";
