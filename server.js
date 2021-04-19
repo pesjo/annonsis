@@ -20,57 +20,35 @@ db.connect();
 console.log(db);
 
 app.listen(port, () => {
-  console.log(`app listening at port http://localhost:${port}`);
-  console.log({ port });
+      console.log(`app listening at port http://localhost:${port}`);
+      console.log({ port });
 });
 
 console.log("hit kmr den 1")
 
 
-app.get("/annonsApi/annonsorget", (req, res) => {
-  console.log(req.params.id)
-  const organisationsnummer =
-    console.log("organisationsnummer: ", organisationsnummer)
-  const organisationsnummer = 234;
+app.get("/annonsApi/annonsorget/:id", (req, res) => {
+  const organisationsnummer = req.params.id;
   console.log("organisationsnummer: ", organisationsnummer)
 
+   const sqlSelect = `Select * FROM tbl_annonsorer WHERE annonsor_orgnr = ?`;
+   console.log("ökhvl")
+   db.query(sqlSelect, [organisationsnummer], (err, result) => {
+      if(result){
+           console.log(result);
+           res.json(result[0]);
+           console.log(result[0])
+      }
+      else{
+        console.log(err)
+       }
 
-  const sqlSelect = `Select * FROM tbl_annonsorer WHERE annonsor_orgnr = ?`;
-  console.log("ökhvl")
-  db.query(sqlSelect, [organisationsnummer], (err, result) => {
-    if (result) {
-      console.log(result);
-      res.json(result[0]);
-      console.log(result[0])
-    }
-    else {
-      console.log(err)
-    }
-
-    return result;
-  });
+   return result;
+});
 });
 console.log("hit kmr den 2")
 
 
-app.get("annonsApi/annonsget:id", (req, res) => {
-  console.log(req.params)
-  const prenumerantnummer = req.params.id;
-
-  const sqlSelect = `Select * FROM tbl_prenumeranter WHERE pre_id = ?`;
-  connection.query(sqlSelect, [prenumerantnummer], (err, result) => {
-    if (result) {
-      console.log(result);
-      res.json(result[0]);
-      console.log(result[0])
-    }
-    else {
-      console.log(err)
-    }
-
-    return result;
-  });
-});
 app.put("/annonsApi/foretagput", (req, res) => {
   console.log("halli hallåe");
   
@@ -145,4 +123,3 @@ app.post("/annonsApi/annonspost/", (req, res) => {
 //    return result;
 // });
 // });
-
