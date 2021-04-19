@@ -17,20 +17,23 @@ export const getAnnonsorById = async (id) => {
 
 
 export const putAnnonsorInfo = async(payload) =>{
+    console.log("inne i putAnninsorInfo")
     
     try{
-       const response = await fetch(`http://localhost:5000/annonsApi/foretagput`, {
+       const response = await fetch(`http://localhost:5000/annonsApi/foretagput/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(payload)
        });
-       return response.json();
+       console.log("response", response);
+       const data = await response;
+       return data;
     }
     catch (error){
         console.log("fångade ett error när ngt skulle uppdateras! här är det");
-        console.log(error);
+        console.log("error från putAnnonsorInfo: ", error);
         
     }
 

@@ -9,12 +9,12 @@ import FormLabel from '@material-ui/core/FormLabel';
 const RadioButtonsForetag = ({label, value, setValue}) => {
 
 return (
-
+  
     <FormControl component="fieldset">
-      <FormLabel component="legend">Har du annonserat hos oss tidigare?</FormLabel>
-      <RadioGroup aria-label={label} name="gender1" value={value} onChange={setValue}>
-        <FormControlLabel value="harAnnonserat" control={<Radio />} label="Jag har annnonserat förut" />
-        <FormControlLabel value="harEjAnnonserat" control={<Radio />} label="Jag har inte annonserat förut" />
+      <FormLabel component="legend">{label}</FormLabel>
+      <RadioGroup aria-label="annonsor" name={label}  onClick={setValue(value)}>
+        <FormControlLabel value={true} control={<Radio />} label="Jag har annnonserat förut" />
+        <FormControlLabel value={false} control={<Radio />} label="Jag har inte annonserat förut" />
       </RadioGroup>
     </FormControl>
 

@@ -52,6 +52,7 @@ const HarAnnonseratForm = () => {
       annonsor_f_postnr: annonsor_f_postnr,
       annonsor_f_ort: annonsor_f_ort,
     };
+    console.log("daaauuta: ", data)
 
     const response = await putAnnonsorInfo(data);
     console.log(response);
