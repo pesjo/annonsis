@@ -41,7 +41,7 @@ const PrenumerantForm = () => {
       pre_postnr: prenumerant_postnr,
     };
 
-    const response = await putAnnonsorInfo(data);
+    const response = await putPrenumerantInfo(data);
     console.log(response);
   };
 

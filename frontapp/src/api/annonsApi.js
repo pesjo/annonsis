@@ -19,7 +19,7 @@ export const getAnnonsorById = async (id) => {
 export const putAnnonsorInfo = async(payload) =>{
     
     try{
-       const response = await fetch(`http://localhost:5000/annonsApi/foretagpost/${id}`, {
+       const response = await fetch(`http://localhost:5000/annonsApi/foretagput`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

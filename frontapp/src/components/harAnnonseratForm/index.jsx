@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import TextInput from "../TextInput";
 
-import { getAnnonsorById } from "../../api/annonsApi";
+import { getAnnonsorById,
+          putAnnonsorInfo
+   } from "../../api/annonsApi";
 const HarAnnonseratForm = () => {
   const [annonsor_namn, setAnnonsorNamn] = useState("");
 
@@ -51,7 +53,7 @@ const HarAnnonseratForm = () => {
       annonsor_f_ort: annonsor_f_ort,
     };
 
-    const response = await putPrenumerantInfo(data);
+    const response = await putAnnonsorInfo(data);
     console.log(response);
   };
 
