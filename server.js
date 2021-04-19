@@ -17,6 +17,7 @@ var db = mysql.createConnection({
   database: "annonssystem",
 });
 db.connect();
+console.log(db);
 
 app.listen(port, () => {
   console.log(`app listening at port http://localhost:${port}`);
@@ -70,6 +71,55 @@ app.get("annonsApi/annonsget:id", (req, res) => {
     return result;
   });
 });
+app.put("/annonsApi/foretagput", (req, res) => {
+  console.log("halli hallåe");
+  
+
+   const annonsor_orgnr =  req.body.annonsor_orgnr;
+   const annonsor_namn = req.body.annonsor_namn;
+   const annonsor_telnr = req.body.annonsor_telnr;
+
+   console.log("hämtat organisationsnummer", annonsor_orgnr);
+   console.log("hämtat organisationNAMN", annonsor_namn);
+
+   const sqlSelect = `UPDATE tbl_annonsorer SET annonsor_namn = ?,  annonsor_telnr = ?  WHERE annonsor_orgnr = (?);`;
+
+
+   db.query(sqlSelect, [annonsor_namn, annonsor_telnr, annonsor_orgnr], (err, result) => {
+     if(result){
+      console.log("result: ", result);
+      res.status(200).send("rapp bapp bam");
+      
+     }
+     else{
+      console.log("error: ", err)
+
+
+     }
+ });
+});
+
+
+
+
+// app.get("annonsApi/annonsget:id", (req, res) => {
+//   console.log(req.params)
+//   const prenumerantnummer = req.params.id;
+
+//    const sqlSelect = `Select * FROM tbl_prenumeranter WHERE pre_id = ?`;
+//    connection.query(sqlSelect, [prenumerantnummer], (err, result) => {
+//       if(result){
+//            console.log(result);
+//            res.json(result[0]);
+//            console.log(result[0])
+//       }
+//       else{
+//         console.log(err)
+//        }
+
+//    return result;
+// });
+// });
 console.log("hit kmr den 3")
 
 
