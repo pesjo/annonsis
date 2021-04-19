@@ -3,7 +3,7 @@ import useStyles from "./styles";
 import TextInput from "../TextInput";
 import {
     postAnnons
-  } from "../../api/prenumerantApi";
+  } from "../../api/annonsApi";
 
 const AnnonsForm = () => {
     const [varupris, set_varupris] = useState("");
@@ -14,7 +14,8 @@ const AnnonsForm = () => {
 
     const create_ad = async (e) => {
         e.preventDefault();
-    
+        console.log("_---_____---__________-----------_____");
+
         console.log("Inne i create_ad");
         const data = {
           ad_varupris: varupris,

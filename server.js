@@ -79,6 +79,31 @@ app.put("/annonsApi/foretagput", (req, res) => {
 
 
 
+//här jobbar signe just nu :) 
+app.post("/annonsApi/annonspost/", (req, res) => {
+  const varupris = 40;
+  const innehall = "1jjjjj";
+  const rubrik = "1";
+  const annonspris = 1;
+
+  console.log("pris: ",req.body.ad_varupris);
+
+  const sqlSelect = `INSERT INTO tbl_ads SET ad_varupris = ?, ad_innehall = ?, ad_rubrik = ?, ad_annonspris = ?;`;
+
+  db.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
+    if(result){
+         console.log("såhär gick det: ",result);
+         res.status(200).send("TJooooho");
+
+
+    }
+    else{
+      console.log("the errorr was: ", err)
+
+    }
+});
+});
+
 
 // app.get("annonsApi/annonsget:id", (req, res) => {
 //   console.log(req.params)
@@ -98,39 +123,5 @@ app.put("/annonsApi/foretagput", (req, res) => {
 //    return result;
 // });
 // });
-console.log("hit kmr den 3")
 
 
-app.get("/annonsApi/annonspost", (req, res) => {
-     const varupris = 2;
-     const innehall = "1jjjjj";
-     const rubrik = "1";
-     const annonspris = 1;
-
-     const sqlSelect = `INSERT INTO tbl_ads SET ad_varupris = ?, ad_innehall = ?, ad_rubrik = ?, ad_annonspris = ?;`;
-
-     connection.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
-       if(result){
-            console.log(result);
-            res.status(200).send("");
-
-
-       }
-       else{
-         console.log(err)
-
-       }
-   });
-
-
-
-
-
-app.listen(port, () => {
-        console.log(`app listening at port http://localhost:${port}`);
-        console.log({ port });
-      });
-    
- });
-
- 

@@ -16,7 +16,33 @@ input{
   margin: 0.5rem;
 }
 
+.home{
+  background-color: #FCFBF9;
+  padding: 0rem 6rem 6rem 6rem;
+  align-content: center;
 
+}
+ul{
+  list-style-type: none;
+  display:flex;
+  justify-content: space-between;
+  padding:2rem;
+  margin: 0rem 6rem 2rem 10rem;
+  color: black;
+
+}
+
+li{
+  padding-top: 2rem;
+  color: black;
+}
+
+.navLinks{
+  text-decoration: none;
+  vertical-align: middle;
+
+
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
