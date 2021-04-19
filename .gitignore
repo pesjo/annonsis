@@ -1,0 +1,8 @@
+
+node_modules/global-dirs/package.json
+node_modules/got/package.json
+node_modules/graceful-fs/package.json
+node_modules/has-flag/package.json
+node_modules/has-yarn/package.json
+node_modules/http-cache-semantics/package.json
+node_modules/http-errors/package.json
