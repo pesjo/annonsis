@@ -15,9 +15,9 @@ const AnnonsCard = ({ label, value, setValue }) => {
 
         <Card className={classes.root}>
             <CardContent>
+                <h2 label="Rubrik" value={varupris} setValue={set_varupris}>Rubrik</h2>
                 <h3 label="Varupris" value={varupris} setValue={set_varupris}>Varupris</h3>
                 <p label="Innehåll" value={innehall} setValue ={set_innehall}>Innehåll</p>
-                <p label="Rubrik" value={rubrik} setValue ={set_rubrik}>Rubrik</p>
                 <p label="Annonspris" value={annonspris} setValue ={set_annonspris}>Annonspris</p>
 
             </CardContent>

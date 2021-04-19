@@ -43,7 +43,7 @@ const ForetagForm = () => {
 
         {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
       </form>
-     <h1>Tidigare annonsor state</h1> {tidareAnnonsor}
+     {tidareAnnonsor}
       {tidareAnnonsor ? (
         <>
         <form className="ForetagForm" onSubmit={searchForetag}>   
@@ -54,11 +54,10 @@ const ForetagForm = () => {
 
 
         <HarAnnonseratForm></HarAnnonseratForm>
-        <FormNyttForetag></FormNyttForetag>
           </>
       ) : <></>}
       {!tidareAnnonsor ? (
-        <h2>HEj</h2>
+        <FormNyttForetag></FormNyttForetag>
       ) : null}
       
       

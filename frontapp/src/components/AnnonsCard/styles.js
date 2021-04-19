@@ -1,10 +1,10 @@
+import { FormHelperText } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
     root: {
         minWidth: 275,
         maxWidth: 400,
-        marginLeft: 430,
         marginBottom: 20,
     },
     title: {
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     },
     pos: {
         marginBottom: 12,
-    },
+    }
 });
 
 export default useStyles;

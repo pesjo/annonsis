@@ -47,7 +47,7 @@ const HarAnnonseratForm = () => {
 
   return (
     <>
-      <SecondaryHeading text="Nytt företag"></SecondaryHeading>
+      <h2>Nytt företag</h2>
       <form onSubmit={insertForetag}>
         <TextInput
           label="Företagets namn"
