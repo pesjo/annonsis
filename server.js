@@ -26,9 +26,13 @@ app.listen(port, () => {
 console.log("hit kmr den 1")
 
 
-app.get("/annonsApi/annonsorget/:id", (req, res) => {
-  const organisationsnummer = req.params.id;
+app.get("/annonsApi/annonsorget", (req, res) => {
+  console.log(req.params.id)
+  const organisationsnummer =
+    console.log("organisationsnummer: ", organisationsnummer)
+  const organisationsnummer = 234;
   console.log("organisationsnummer: ", organisationsnummer)
+
 
   const sqlSelect = `Select * FROM tbl_annonsorer WHERE annonsor_orgnr = ?`;
   console.log("ökhvl")
@@ -48,37 +52,36 @@ app.get("/annonsApi/annonsorget/:id", (req, res) => {
 console.log("hit kmr den 2")
 
 
-// app.get("annonsApi/annonsget:id", (req, res) => {
-//   console.log(req.params)
-//   const prenumerantnummer = req.params.id;
+app.get("annonsApi/annonsget:id", (req, res) => {
+  console.log(req.params)
+  const prenumerantnummer = req.params.id;
 
-//    const sqlSelect = `Select * FROM tbl_prenumeranter WHERE pre_id = ?`;
-//    connection.query(sqlSelect, [prenumerantnummer], (err, result) => {
-//       if(result){
-//            console.log(result);
-//            res.json(result[0]);
-//            console.log(result[0])
-//       }
-//       else{
-//         console.log(err)
-//        }
+  const sqlSelect = `Select * FROM tbl_prenumeranter WHERE pre_id = ?`;
+  connection.query(sqlSelect, [prenumerantnummer], (err, result) => {
+    if (result) {
+      console.log(result);
+      res.json(result[0]);
+      console.log(result[0])
+    }
+    else {
+      console.log(err)
+    }
 
-//    return result;
-// });
-// });
+    return result;
+  });
+});
 console.log("hit kmr den 3")
 
 
-app.post("http://localhost:5000/annonsApi/annonspost", (req, res) => {
-  console.log("kommer till seervern");
+app.post("/annonsApi/annonspost", (req, res) => {
   const varupris = req.body.ad_varupris;
-  const innehall = req.body.innehall;
-  const rubrik = req.body.rubrik;
-  const annonspris = req.body.annonspris;
+  const innehall = req.body.ad_innehall;
+  const rubrik = req.body.ad_rubrik;
+  const annonspris = req.body.ad_annonspris;
 
   const sqlSelect = `INSERT INTO tbl_ads SET ad_varupris = ?, ad_innehall = ?, ad_rubrik = ?, ad_annonspris = ?;`;
-  console.log("I SERVERN")
-  db.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
+
+  connection.query(sqlSelect, [varupris, innehall, rubrik, annonspris], (err, result) => {
     if (result) {
       console.log(result);
       res.status(200).send("");
@@ -90,14 +93,25 @@ app.post("http://localhost:5000/annonsApi/annonspost", (req, res) => {
 
     }
   });
+});
 
+app.get("/a", (req, res) => {
+  console.log("result");
+
+    }
+  });
+
+  res.status(200).send("bajs");
 
   console.log("hit kmr den ")
 
-  app.listen(port, () => {
-    console.log(`app listening at port http://localhost:${port}`);
-    console.log({ port });
-  });
 
 });
+
+app.listen(port, () => {
+  console.log(`app listening at port http://localhost:${port}`);
+  console.log({ port });
+});
+
+
 

@@ -54,6 +54,22 @@ export const postAnnons = async (payload) => {
         console.log("Error i try catch");
         console.log(error);
 
+export const postAnnons = async(payload) =>{
+
+    try{
+       const response = await fetch(`http://localhost:5000/annonsApi/postannons`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+       });
+       return response.json();
+    }
+    catch (error){
+        console.log("fångade ett error när ngt skulle läggas in! här är det");
+        console.log(error);
+        
     }
 
 }

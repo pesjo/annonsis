@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import useStyles from "./styles";
 import TextInput from "../TextInput";
 import {
-  postAnnons
-} from "../../api/annonsApi";
+    postAnnons
+  } from "../../api/annonsApi";
 
 const AnnonsForm = () => {
   const [varupris, set_varupris] = useState("");
