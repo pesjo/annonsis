@@ -12,7 +12,7 @@ return (
   
     <FormControl component="fieldset">
       <FormLabel component="legend">{label}</FormLabel>
-      <RadioGroup aria-label="annonsor" name={label}  onClick={setValue(value)}>
+      <RadioGroup aria-label="annonsor" name={label} value={value} onClick={setValue(value)}>
         <FormControlLabel value={true} control={<Radio />} label="Jag har annnonserat förut" />
         <FormControlLabel value={false} control={<Radio />} label="Jag har inte annonserat förut" />
       </RadioGroup>

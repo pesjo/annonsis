@@ -23,10 +23,26 @@ const ForetagForm = () => {
 
   return (
     <>
-      <RadioButtonsForetag label ="Har du annonserat hos oss tidigare?" value = {tidareAnnonsor} setValue = {setTidareAnnonsor}></RadioButtonsForetag> 
+      {/* <RadioButtonsForetag label ="Har du annonserat hos oss tidigare?" value = {tidareAnnonsor} setValue = {setTidareAnnonsor}></RadioButtonsForetag>  */}
       
+      <form>
+        <input
+          type="radio"
+          name="radio"
+          defaultChecked = "true"
+          onClick={() => setTidareAnnonsor(true)}
+        />
+        Jag har annonserat hos er tidigare
+        <input
+          type="radio"
+          name="radio"
+          onClick={() => setTidareAnnonsor(false)}
+        />
+        Jag har inte annonserat tidigare
 
-      {tidareAnnonsor}
+        {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
+      </form>
+     <h1>Tidigare annonsor state</h1> {tidareAnnonsor}
       {tidareAnnonsor ? (
         <>
         <form className="ForetagForm" onSubmit={searchForetag}>   
