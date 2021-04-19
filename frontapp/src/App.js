@@ -3,6 +3,7 @@ import "./App.css";
 import SecondaryHeading from "./components/SecondaryHeading/index";
 import PrenumerantForm from "./components/PrenumerantForm";
 import ForetagForm from "./components/ForetagForm";
+import AnnonsForm from "./components/AnnonsForm";
 function App() {
   const [show_pre, set_show_pre] = useState(true);
   const [show_annons, set_show_annons] = useState(false);
@@ -41,6 +42,8 @@ function App() {
       {!show_pre ? (
         <ForetagForm></ForetagForm>
       ) : null}
+
+      <AnnonsForm></AnnonsForm>
     </div>
   );
 }

@@ -26,9 +26,9 @@ app.listen(port, () => {
     console.log({ port });
   });
 
-app.get("/api/annonspost", (req, res) => {
+app.post("/api/annonspost", (req, res) => {
      const varupris = 2;
-     const innehall = "1";
+     const innehall = "1jjjjj";
      const rubrik = "1";
      const annonspris = 1;
 
