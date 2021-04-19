@@ -81,10 +81,10 @@ app.put("/annonsApi/foretagput", (req, res) => {
 
 //här jobbar signe just nu :) 
 app.post("/annonsApi/annonspost/", (req, res) => {
-  const varupris = 40;
-  const innehall = "1jjjjj";
-  const rubrik = "1";
-  const annonspris = 1;
+  const varupris = req.body.ad_varupris;
+  const innehall = req.body.ad_innehall;
+  const rubrik =   req.body.ad_rubrik;
+  const annonspris = req.body.ad_annonspris;
 
   console.log("pris: ",req.body.ad_varupris);
 

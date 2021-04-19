@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AllaAnnnonser from "../AllaAnnonser";
 import App from "../../App";
 import Home from '../../Home';
+import { green } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: 'left',
     color: 'black',
-    alignContent: 'space-between'
+    alignContent: 'space-between',
+    backgroundColor: '#fcff9c'
     
     
   },
@@ -31,10 +33,10 @@ export default function Nav() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>  
+    <>  
       
       <BrowserRouter>
-      <nav>
+      <nav className={classes.root}> 
       <ul>
       <li><Link to= '/index' className="navLinks"> <h1>
           SIGGE OCH PERNIS ANNONSSYSTEM
@@ -73,6 +75,6 @@ export default function Nav() {
         
      
 
-    </div>
+    </>
   );
 }

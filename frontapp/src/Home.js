@@ -68,8 +68,7 @@ function Home() {
         Företag
         {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
       </form>
-      <SecondaryHeading text="Formlär där prenumerantens info auto-updateras ish snart efter att infon hämtats och så"></SecondaryHeading>
-      <SecondaryHeading text="SOLEN SKINER"></SecondaryHeading>
+     
 
       {show_pre ? (
         <PrenumerantForm></PrenumerantForm>
