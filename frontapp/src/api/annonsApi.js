@@ -83,6 +83,18 @@ export const postForetagInfo = async(payload) =>{
         console.log("fångade ett error när ngt skulle uppdateras! här är det");
         console.log("error från postForetagInfo: ", error);
         
+export const getAnnonser = async () => {
+    
+    try{
+        const response = await fetch(`http://localhost:5000/annonsApi/annonsget/`);
+        console.log("response i getAnnonser", response);
+        const data = await response.json();
+        console.log("data", data);
+        return data;
+    }
+    catch (error){
+        console.log("Error i getAnnonser");
+        console.log(error);
     }
 
 }

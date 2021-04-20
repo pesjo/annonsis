@@ -151,6 +151,24 @@ app.post("/annonsApi/foretagpost/", (req, res) => {
  });
 });
 
+app.get("/annonsApi/annonsget/", (req, res) => {
+
+   const sqlSelect = `Select * FROM tbl_ads`;
+   console.log("ökhvl")
+   db.query(sqlSelect, (err, result) => {
+      if(result){
+           console.log(result);
+           res.json(result);
+           console.log(result)
+      }
+      else{
+        console.log(err)
+       }
+
+   return result;
+});
+});
+console.log("hit kmr den 2")
 // app.get("annonsApi/annonsget:id", (req, res) => {
 //   console.log(req.params)
 //   const prenumerantnummer = req.params.id;
