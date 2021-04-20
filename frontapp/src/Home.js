@@ -38,7 +38,7 @@ import ForetagForm from "./components/ForetagForm";
 import AnnonsForm from "./components/AnnonsForm";
 import NavBar from "./components/NavBar"
 function Home() {
-  const [show_pre, set_show_pre] = useState();
+  const [show_pre, set_show_pre] = useState(true);
   const [show_annons, set_show_annons] = useState(false);
   const [error, set_error] = useState("");
   const [pris, setPris] = useState("");

@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'left',
     color: 'black',
     alignContent: 'space-between',
-    backgroundColor: '#fcff9c'
     
     
   },

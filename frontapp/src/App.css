@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #fcf2fa;
+  background-color:#f4ff7fd;
 }
 
 .App-logo {
@@ -17,7 +17,7 @@ input{
 }
 
 .home{
-  background-color: #FCFBF9;
+  background-color: #f7edee;
   padding: 0rem 6rem 6rem 6rem;
   align-content: center;
 
