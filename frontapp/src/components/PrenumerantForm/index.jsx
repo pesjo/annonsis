@@ -49,8 +49,8 @@ const PrenumerantForm = () => {
     <>
       <form className="Prenumerant" onSubmit={search_prenumeration}>
         <h2>Hämta prenumerant</h2>
-        <label>Prenumerations ID</label>
-        <input
+        <TextInput
+          label="Prenumerationsnummer"
           className={classes.formStyle}
           type="text"
           name="prenumerationsnr"
@@ -58,8 +58,9 @@ const PrenumerantForm = () => {
           onChange={(e) => {
             set_prenumerant_id(e.target.value);
           }}
-        />
-        <input type="submit" value="Sök prenumerant/" className={classes.buttonStyle}></input>
+        ></TextInput>
+        <br/>
+        <input type="submit" value="Hämta" className={classes.buttonStyle}></input>
       </form>
 
       <form className="UpdatePrenumerant" onSubmit={update_prenumerant}>
