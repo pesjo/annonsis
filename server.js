@@ -159,7 +159,6 @@ app.get("/annonsApi/annonsget/", (req, res) => {
       if(result){
            console.log(result);
            res.json(result);
-           console.log(result)
       }
       else{
         console.log(err)

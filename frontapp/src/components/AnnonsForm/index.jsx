@@ -23,7 +23,7 @@ const AnnonsForm = ({pris}) => {
           ad_varupris: varupris,
           ad_innehall: innehall,
           ad_rubrik: rubrik,
-          ad_annonspris: annonspris
+          ad_annonspris: pris
         };
     
         const response = await postAnnons(data);

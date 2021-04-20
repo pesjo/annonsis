@@ -89,7 +89,11 @@ export const postForetagInfo = async(payload) =>{
 export const getAnnonser = async () => {
     
     try{
-        const response = await fetch(`http://localhost:5000/annonsApi/annonsget/`);
+        const response = await fetch(`http://localhost:5000/annonsApi/annonsget/`, {
+        method: "GET",
+        headers: { 'Content-Type': 'application/json'}
+      });
+      
         console.log("response i getAnnonser", response);
         const data = await response.json();
         console.log("data", data);
