@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import TextInput from "../TextInput";
+import useStyles from "./styles";
 
 import {
   getAnnonsorById,
   putAnnonsorInfo
 } from "../../api/annonsApi";
 const HarAnnonseratForm = () => {
+  const classes = useStyles();
+
   const [annonsor_namn, setAnnonsorNamn] = useState("");
 
   const [annonsor_orgnr, setAnnonsorOrgNr] = useState("");
@@ -69,7 +72,7 @@ const HarAnnonseratForm = () => {
           setValue={setAnnonsorOrgNr}
         ></TextInput>
         <br />
-        <input type="submit" value="Sök företag"></input>
+        <input type="submit" value="Sök företag" className={classes.buttonStyle}></input>
       </form>
       <form onSubmit={updateForetag}>
         <TextInput
@@ -128,7 +131,7 @@ const HarAnnonseratForm = () => {
           setValue={setAnnonsorFOrt}
         ></TextInput>
         <br />
-        <input type="submit" value="Spara information" ></input>
+        <input type="submit" value="Spara information" className={classes.buttonStyle}></input>
       </form>
     </>
   );

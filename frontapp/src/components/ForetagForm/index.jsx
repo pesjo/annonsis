@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import useStyles from "./styles";
+import useStyles from "./styles";
 import RadioButtonsForetag from "../RadioButtonsForetag"
 import TextInput from "../TextInput";
 import HarAnnonseratForm from "../HarAnnonseratForm"
@@ -11,7 +11,7 @@ const ForetagForm = () => {
     const [tidareAnnonsor, setTidareAnnonsor] = useState(true);
 
 
- // const classes = useStyles();
+ const classes = useStyles();
   
   const searchForetag = async(e) => {
     e.preventDefault();
