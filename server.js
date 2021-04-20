@@ -53,17 +53,25 @@ app.put("/annonsApi/foretagput", (req, res) => {
   console.log("halli hallåe");
   
 
+  const annonsor_namn = req.body.annonsor_namn;
+  const annonsor_telnr = req.body.annonsor_telnr;
    const annonsor_orgnr =  req.body.annonsor_orgnr;
-   const annonsor_namn = req.body.annonsor_namn;
-   const annonsor_telnr = req.body.annonsor_telnr;
+  const annonsor_u_adress = req.body.annonsor_u_adress;
+  const annonsor_u_postnr = req.body.annonsor_u_postnr;
+  const  annonsor_u_ort = req.body.annonsor_u_ort;
+
+  const annonsor_f_adress = req.body.annonsor_f_adress;
+  const annonsor_f_postnr = req.body.annonsor_f_postnr;
+  const annonsor_f_ort = req.body.annonsor_f_ort;
+
 
    console.log("hämtat organisationsnummer", annonsor_orgnr);
    console.log("hämtat organisationNAMN", annonsor_namn);
 
-   const sqlSelect = `UPDATE tbl_annonsorer SET annonsor_namn = ?,  annonsor_telnr = ?  WHERE annonsor_orgnr = (?);`;
+   const sqlSelect = `UPDATE tbl_annonsorer SET annonsor_namn = ?,  annonsor_telnr = ?, annonsor_u_adress = ?, annonsor_u_postnr = ?, annonsor_u_ort = ?, annonsor_f_adress = ?, annonsor_f_postnr = ?, annonsor_f_ort = ?  WHERE annonsor_orgnr = (?);`;
 
 
-   db.query(sqlSelect, [annonsor_namn, annonsor_telnr, annonsor_orgnr], (err, result) => {
+   db.query(sqlSelect, [annonsor_namn, annonsor_telnr, annonsor_u_adress, annonsor_u_postnr, annonsor_u_ort, annonsor_f_adress, annonsor_f_postnr, annonsor_f_ort, annonsor_orgnr], (err, result) => {
      if(result){
       console.log("result: ", result);
       res.status(200).send("rapp bapp bam");
@@ -104,6 +112,44 @@ app.post("/annonsApi/annonspost/", (req, res) => {
 });
 });
 
+
+
+
+app.post("/annonsApi/foretagpost/", (req, res) => {
+  console.log("halli hallåe FORETAGPOST");
+  
+
+  
+   const annonsor_namn = req.body.annonsor_namn;
+   const annonsor_telnr = req.body.annonsor_telnr;
+    const annonsor_orgnr =  req.body.annonsor_orgnr;
+   const annonsor_u_adress = req.body.annonsor_u_adress;
+   const annonsor_u_postnr = req.body.annonsor_u_postnr;
+   const  annonsor_u_ort = req.body.annonsor_u_ort;
+
+   const annonsor_f_adress = req.body.annonsor_f_adress;
+   const annonsor_f_postnr = req.body.annonsor_f_postnr;
+   const annonsor_f_ort = req.body.annonsor_f_ort;
+
+   console.log("hämtat organisationsnummer", annonsor_orgnr);
+   console.log("hämtat organisationNAMN", annonsor_namn);
+
+   const sqlSelect = `INSERT INTO tbl_annonsorer SET annonsor_namn = ?,  annonsor_telnr = ?, annonsor_orgnr = ?, annonsor_u_adress = ?, annonsor_u_postnr = ?, annonsor_u_ort = ?, annonsor_f_adress = ?, annonsor_f_postnr = ?, annonsor_f_ort = ? ;`;
+
+
+   db.query(sqlSelect, [annonsor_namn, annonsor_telnr, annonsor_orgnr, annonsor_u_adress, annonsor_u_postnr, annonsor_u_ort, annonsor_f_adress, annonsor_f_postnr, annonsor_f_ort], (err, result) => {
+     if(result){
+      console.log("result: ", result);
+      res.status(200).send("rapp bapp bam");
+      
+     }
+     else{
+      console.log("error: ", err)
+
+
+     }
+ });
+});
 
 // app.get("annonsApi/annonsget:id", (req, res) => {
 //   console.log(req.params)

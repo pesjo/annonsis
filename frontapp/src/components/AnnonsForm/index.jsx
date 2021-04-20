@@ -1,20 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useStyles from "./styles";
 import TextInput from "../TextInput";
 import {
     postAnnons
   } from "../../api/annonsApi";
 
-const AnnonsForm = () => {
+const AnnonsForm = ({pris}) => {
     const [varupris, set_varupris] = useState("");
     const [innehall, set_innehall] = useState("");
     const [rubrik, set_rubrik] = useState("");
-    const [annonspris, set_annonspris] = useState("");
+    const [annonspris, set_annonspris] = useState(pris);
     const classes = useStyles();
 
+   
     const create_ad = async (e) => {
         e.preventDefault();
         console.log("_---_____---__________-----------_____");
+        console.log("priset blev: ", pris);
 
         console.log("Inne i create_ad");
         const data = {
@@ -40,8 +42,8 @@ const AnnonsForm = () => {
                 <br />
                 <TextInput label="Rubrik" setValue ={set_rubrik}></TextInput>
                 <br />
-                <TextInput label="Annonspris" setValue ={set_annonspris}></TextInput>
-                <br />
+                
+                <p> Annonspris: {pris} </p>
 
                 <input type="submit" value="Lägg ut annons" className={classes.buttonStyle}></input>
             </form>

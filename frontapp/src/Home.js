@@ -30,7 +30,7 @@
 
 
 
-  import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import SecondaryHeading from "./components/SecondaryHeading/index";
 import PrenumerantForm from "./components/PrenumerantForm";
@@ -38,9 +38,28 @@ import ForetagForm from "./components/ForetagForm";
 import AnnonsForm from "./components/AnnonsForm";
 import NavBar from "./components/NavBar"
 function Home() {
-  const [show_pre, set_show_pre] = useState(true);
+  const [show_pre, set_show_pre] = useState();
   const [show_annons, set_show_annons] = useState(false);
   const [error, set_error] = useState("");
+  const [pris, setPris] = useState("");
+
+  useEffect(() => {
+    //fetchData();
+    //deleteGodis();
+    //addGodis();
+    setPrisAndPren(show_pre);
+  }, []);
+
+  const setPrisAndPren = (Prenumerant) => {
+    set_show_pre(Prenumerant);
+    if(Prenumerant){
+      setPris(0);
+    }else if(!Prenumerant){
+      setPris(40);
+    }
+    console.log("pris ", pris);
+    
+  }
 
 
   return (
@@ -56,14 +75,14 @@ function Home() {
           name="drivers"
           value="Prenumerant"
           defaultChecked = "true"
-          onClick={() => set_show_pre(true)}
+          onClick={() => setPrisAndPren(true)}
         />
         Prenumerant
         <input
           type="radio"
           name="drivers"
           value="Företag"
-          onClick={() => set_show_pre(false)}
+          onClick={() => setPrisAndPren(false)}
         />
         Företag
         {/* <button type="submit" onClick={Select_prenumerant()}>Rensa val</button> */}
@@ -77,7 +96,7 @@ function Home() {
         <ForetagForm></ForetagForm>
       ) : null}
 
-      <AnnonsForm></AnnonsForm>
+      <AnnonsForm pris={pris}></AnnonsForm>
     </div>
   );
 }

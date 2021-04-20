@@ -61,3 +61,28 @@ export const postAnnons = async(payload) =>{
     }
 
 }
+
+
+
+export const postForetagInfo = async(payload) =>{
+    console.log("inne i postForetagInfo")
+    
+    try{
+       const response = await fetch(`http://localhost:5000/annonsApi/foretagpost/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+       });
+       console.log("response", response);
+       return response;
+       
+    }
+    catch (error){
+        console.log("fångade ett error när ngt skulle uppdateras! här är det");
+        console.log("error från postForetagInfo: ", error);
+        
+    }
+
+}

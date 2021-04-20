@@ -3,8 +3,7 @@ import TextInput from "../TextInput";
 import useStyles from "./styles";
 import SecondaryHeading from "../SecondaryHeading";
 import {
-  getAnnonsorById,
-  putAnnonsorInfo
+  postForetagInfo
 } from "../../api/annonsApi";
 const HarAnnonseratForm = () => {
   const [annonsor_namn, setAnnonsorNamn] = useState("");
@@ -41,7 +40,7 @@ const HarAnnonseratForm = () => {
     };
     console.log("daaauuta: ", data)
 
-    const response = await putAnnonsorInfo(data);
+    const response = await postForetagInfo(data);
     console.log(response);
   };
 
