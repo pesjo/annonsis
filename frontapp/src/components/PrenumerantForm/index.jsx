@@ -51,14 +51,9 @@ const PrenumerantForm = () => {
         <h2>Hämta prenumerant</h2>
         <TextInput
           label="Prenumerationsnummer"
-          className={classes.formStyle}
-          type="text"
           name="prenumerationsnr"
-          required
-          onChange={(e) => {
-            set_prenumerant_id(e.target.value);
-          }}
-        ></TextInput>
+          value={prenumerant_id} setValue ={set_prenumerant_id}
+        />
         <br/>
         <input type="submit" value="Hämta" className={classes.buttonStyle}></input>
       </form>
