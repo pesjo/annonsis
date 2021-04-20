@@ -82,6 +82,9 @@ export const postForetagInfo = async(payload) =>{
     catch (error){
         console.log("fångade ett error när ngt skulle uppdateras! här är det");
         console.log("error från postForetagInfo: ", error);
+
+    }
+}
         
 export const getAnnonser = async () => {
     
