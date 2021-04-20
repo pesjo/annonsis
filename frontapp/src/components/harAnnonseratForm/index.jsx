@@ -72,7 +72,7 @@ const HarAnnonseratForm = () => {
           setValue={setAnnonsorOrgNr}
         ></TextInput>
         <br />
-        <input type="submit" value="Sök företag" className={classes.buttonStyle}></input>
+        <input type="submit" value="Hämta" className={classes.buttonStyle}></input>
       </form>
       <form onSubmit={updateForetag}>
         <TextInput

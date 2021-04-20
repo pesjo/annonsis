@@ -68,7 +68,7 @@ function Home() {
       
       <h1>Lägg till en annons</h1>
 
-      <h4>Jag är:</h4>
+      <h4>Jag vill annonsera som:</h4>
       <form>
         <input
           type="radio"

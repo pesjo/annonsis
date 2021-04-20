@@ -47,8 +47,7 @@ const ForetagForm = () => {
       {tidareAnnonsor ? (
         <>
         <form className="ForetagForm" onSubmit={searchForetag}>   
-        <h2>Mitt förtag har annonserat tidigare: Hämta Företag</h2>
-        <label>Skriv orgainsationsnummer</label>
+        <h2>Mitt företag har annonserat tidigare</h2>
         <br/>
         </form>
 
